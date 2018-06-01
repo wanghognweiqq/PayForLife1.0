@@ -22,8 +22,13 @@ private UserDao userDao;
 	
 	public boolean register(User user) {
 		// TODO Auto-generated method stub
-		return userDao.insert(user);
-
+		String username = user.getUsername();
+		boolean result = userDao.selectregistered(username);
+		if (result == true) {
+			return userDao.insert(user);
+		} else {
+			return false;
+		}
 	}
 	
 	public List<User> find(){

@@ -1,14 +1,19 @@
 package net.onest.servlets;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.Writer;
 import java.util.List;
 
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import net.onest.bean.User;
 import net.onest.service.UserService;
@@ -28,12 +33,14 @@ public class UserAction {
 	}
 	
 	@RequestMapping("/register")
+	@ResponseBody
 	public String register(User user) {
 		boolean result = userService.register(user);
 		if(result) {
-			return "user/registerSuccess";
+				String re = "registersuccess";
+				return re;
 		}else {
-			return "register";
+			return "registered";
 		}
 	}
 	
