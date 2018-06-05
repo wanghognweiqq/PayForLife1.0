@@ -25,14 +25,11 @@ public class User {
 	@Column(name="user_id")
 	private Integer id;
 	@Column(name="user_username")
-
 	private String username;
 	@Column(name="user_passwd")
 	private String password;
 	@Column(name="user_email")
 	private String email;
-	@Column(name="user_telephone")
-	private String telphone;
 	
 	
 	public Integer getId() {
@@ -58,12 +55,6 @@ public class User {
 	}
 	public void setEmail(String email) {
 		this.email = email;
-	}
-	public String getTelphone() {
-		return telphone;
-	}
-	public void setTelphone(String telphone) {
-		this.telphone = telphone;
 	}
 
 	

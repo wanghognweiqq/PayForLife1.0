@@ -19,6 +19,17 @@ public class UserDao {
 		return user;
 	}
 	
+	public boolean selectregistered(String username) {
+		Session session = sessionFactory.getCurrentSession();
+		User user = (User)session.createQuery("from User where user_username=?").setParameter(0, username).uniqueResult();
+		if (null == user) {
+			return true;
+		}else if (null != user) {
+			return false;
+		}
+		return true;
+	}
+	
 	public boolean insert(User user) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
